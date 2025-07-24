@@ -50,6 +50,24 @@ A simple inventory management system with user authentication, product managemen
    ```
    The app runs on `http://localhost:3000` by default.
 
+
+--------------------------------------------------------------------------------------
+
+📸 API Testing Gallery
+Need a quick look at how the APIs work? Check out the screenshots of tested endpoints via Postman:
+
+➡️ Open Screenshot Folder on Google Drive https://drive.google.com/drive/folders/1K8nRj9Rl7aVaoqOulsg_vY6ra7yF-fWK?usp=drive_link
+
+Includes:
+
+✅ User Registration (/api/v1/register)
+
+✅ User Login (/api/v1/login)
+
+📦 Product Creation (/api/v1/products)
+
+✏️ Quantity Update (/api/v1/products/:id/quantity)
+
 ## API Documentation
 - The backend exposes REST APIs for authentication and product management.
 - See [API_DOCS.md](API_DOCS.md) for detailed OpenAPI/Swagger documentation.
