@@ -19,6 +19,7 @@ export default function LoginPage({ onLogin }) {
       if (res.data && res.data.token) {
         localStorage.setItem('token', res.data.token);
         onLogin(res.data.token);
+        navigate('/products');
       } else {
         setError(res.data.message || 'Login failed');
       }
