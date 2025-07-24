@@ -1,0 +1,41 @@
+### Register a new user
+POST http://localhost:5000/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testpass"
+}
+
+### Login as user
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testpass"
+}
+
+### Add a product (replace <TOKEN> with JWT from login)
+POST http://localhost:5000/products
+Content-Type: application/json
+Authorization: Bearer <TOKEN>
+
+{
+  "name": "Sample Product",
+  "type": "Electronics",
+  "sku": "SKU12345",
+  "image_url": "http://example.com/image.jpg",
+  "description": "A sample product.",
+  "quantity": 100,
+  "price": 49.99
+}
+
+### Update product quantity (replace <TOKEN> and <PRODUCT_ID>)
+PUT http://localhost:5000/products/<PRODUCT_ID>/quantity
+Content-Type: application/json
+Authorization: Bearer <TOKEN>
+
+{
+  "quantity": 150
+} 
