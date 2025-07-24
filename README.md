@@ -67,6 +67,3 @@ A simple inventory management system with user authentication, product managemen
   - `POST /api/v1/products` — Add product (auth required)
   - `PUT /api/v1/products/:id/quantity` — Update quantity (auth required)
   - `GET /api/v1/products` — List products (auth required)
-
-## License
-MIT 
