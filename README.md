@@ -31,6 +31,7 @@ A simple inventory management system with user authentication, product managemen
    ```env
    MONGO_URI=your_mongodb_uri
    JWT_SECRET=your_jwt_secret
+   PORT=
    ```
 4. Start the backend:
    ```bash
