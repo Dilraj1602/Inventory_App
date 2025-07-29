@@ -42,20 +42,6 @@ export default function AddProductForm({ token, onAdd }) {
     }
   };
 
-  function InputField({ name, value, onChange, placeholder, type = 'text', required = false }) {
-    return (
-      <input
-        name={name}
-        value={value}
-        onChange={onChange}
-        className="p-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-        placeholder={placeholder}
-        type={type}
-        required={required}
-      />
-    );
-  }
-
   return (
     <div className="flex items-center justify-center min-h-screen bg-slate-100 mt-16">
       <form onSubmit={handleSubmit} className="w-full max-w-lg p-8 bg-gradient-to-br from-slate-50 to-slate-200 rounded-2xl shadow-2xl space-y-6 border border-slate-200">
@@ -63,14 +49,63 @@ export default function AddProductForm({ token, onAdd }) {
         {error && <div className="text-red-500 text-center">{error}</div>}
         {success && <div className="text-green-600 text-center">{success}</div>}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <InputField name="name" value={form.name} onChange={handleChange} placeholder="Name" required />
-          <InputField name="type" value={form.type} onChange={handleChange} placeholder="Type" required />
-          <InputField name="sku" value={form.sku} onChange={handleChange} placeholder="SKU" required />
-          <InputField name="image_url" value={form.image_url} onChange={handleChange} placeholder="Image URL" />
-          <InputField name="quantity" value={form.quantity} onChange={handleChange} placeholder="Quantity" type="number" required />
-          <InputField name="price" value={form.price} onChange={handleChange} placeholder="Price" type="number" required />
+          <input
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            className="p-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            placeholder="Name"
+            required
+          />
+          <input
+            name="type"
+            value={form.type}
+            onChange={handleChange}
+            className="p-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            placeholder="Type"
+            required
+          />
+          <input
+            name="sku"
+            value={form.sku}
+            onChange={handleChange}
+            className="p-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            placeholder="SKU"
+            required
+          />
+          <input
+            name="image_url"
+            value={form.image_url}
+            onChange={handleChange}
+            className="p-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            placeholder="Image URL"
+          />
+          <input
+            name="quantity"
+            value={form.quantity}
+            onChange={handleChange}
+            className="p-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            placeholder="Quantity"
+            type="number"
+            required
+          />
+          <input
+            name="price"
+            value={form.price}
+            onChange={handleChange}
+            className="p-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            placeholder="Price"
+            type="number"
+            required
+          />
         </div>
-        <textarea name="description" value={form.description} onChange={handleChange} className="w-full p-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition" placeholder="Description" />
+        <textarea 
+          name="description" 
+          value={form.description} 
+          onChange={handleChange} 
+          className="w-full p-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition" 
+          placeholder="Description" 
+        />
         <button type="submit" className="w-full bg-gradient-to-r from-slate-900 to-slate-700 text-white py-2 rounded-lg hover:from-slate-800 hover:to-slate-600 transition font-semibold shadow" disabled={loading}>
           {loading ? 'Adding...' : 'Add Product'}
         </button>
