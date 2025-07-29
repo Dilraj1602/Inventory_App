@@ -1,4 +1,3 @@
-import React from 'react';
 
 function isValidToken(token) {
   if (!token) return false;

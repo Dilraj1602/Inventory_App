@@ -24,6 +24,7 @@ function isValidToken(token) {
 
 function App() {
   const [token, setToken] = useState(() => localStorage.getItem('token'));
+  const isLoggedIn = !!token && isValidToken(token);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -32,21 +33,31 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar onLogout={handleLogout} isLoggedIn={!!token && isValidToken(token)} />
+      <Navbar onLogout={handleLogout} isLoggedIn={isLoggedIn} />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<LoginPage onLogin={setToken} />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route 
+          path="/login" 
+          element={
+            isLoggedIn ? <Navigate to="/" replace /> : <LoginPage onLogin={setToken} />
+          } 
+        />
+        <Route 
+          path="/register" 
+          element={
+            isLoggedIn ? <Navigate to="/" replace /> : <RegisterPage />
+          } 
+        />
         <Route
           path="/products"
           element={
-            !!token && isValidToken(token) ? <ProductList token={token} /> : <Navigate to="/login" replace />
+            isLoggedIn ? <ProductList token={token} /> : <Navigate to="/login" replace />
           }
         />
         <Route
           path="/add-product"
           element={
-            !!token && isValidToken(token) ? <AddProductFormWithRedirect token={token} /> : <Navigate to="/login" replace />
+            isLoggedIn ? <AddProductFormWithRedirect token={token} /> : <Navigate to="/login" replace />
           }
         />
         <Route path="*" element={<Navigate to="/" />} />
